@@ -6,19 +6,19 @@ module.exports = {
     },
 
     sense: function(pin){
-        const target =  new Gpio(pin, 'in');
+        const target =  new Gpio(pin, 'out');
         return target.readSync();
     },
 
     activate: function(pin){
         const target = new Gpio(pin, 'out');
-        target.writeSync(1)
+        target.writeSync(1);
         return {pin: pin, active: true}
     },
 
     deactivate: function(pin){
         const target = new Gpio(pin, 'out');
-        target.writeSync(0)
+        target.writeSync(0);
         return {pin: pin, active: false}
     }
 };
