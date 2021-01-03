@@ -1,11 +1,8 @@
 const pi = require('./pi.controller');
 const should = require('chai').should();
-const test = "bar";
 
 describe('Test of Rπ integration', function(){
-    it('should return true', function(){
-        test.should.eql("bar")
-    });
+    beforeEach(done => setTimeout(done, 1000));
 
     it('should check Rπ integration and return active', function(){
         pi.status().should.eql(true)
@@ -17,9 +14,9 @@ describe('Test of Rπ integration', function(){
         pi.activate(27);
         pi.activate(22);
         // binary inspection
-        pi.sense(17).should.eql(true);
-        pi.sense(27).should.eql(true);
-        pi.sense(22).should.eql(true);
+        pi.sense(17).should.eql(1);
+        pi.sense(27).should.eql(1);
+        pi.sense(22).should.eql(1);
     });
 
     it('should deactivate up all LEDs', function(){
@@ -28,8 +25,8 @@ describe('Test of Rπ integration', function(){
         pi.deactivate(27);
         pi.deactivate(22);
         // binary inspection
-        pi.sense(17).should.eql(true);
-        pi.sense(27).should.eql(true);
-        pi.sense(22).should.eql(true);
+        pi.sense(17).should.eql(0);
+        pi.sense(27).should.eql(0);
+        pi.sense(22).should.eql(0);
     })
 });
