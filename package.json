@@ -1,0 +1,23 @@
+{
+  "name": "rpi_base",
+  "version": "1.0.0",
+  "description": "Base code for Node.js server integrated with Raspberry Pi",
+  "main": "index.js",
+  "author": "Kyle Thomas",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --exit mochatest.js",
+    "server": "nodemon src/server/index.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "mocha": "^8.2.1",
+    "onoff": "^6.0.1",
+    "path": "^0.12.7"
+  }
+}
