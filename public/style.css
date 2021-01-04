@@ -1,0 +1,17 @@
+.button{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.box-text{
+    vertical-align: middle;
+    color: whitesmoke;
+    margin-top: 40%;
+}

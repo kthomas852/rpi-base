@@ -17,6 +17,16 @@ function blueLight(){
     setTimeout(()=>axios.post('/api/pi', {pin: 17}), 2000)
 }
 
+function whiteLight(){
+    axios.put('/api/pi', {pin: 24});
+    setTimeout(()=>axios.post('/api/pi', {pin: 24}), 2000)
+}
+
+function yellowLight(){
+    axios.put('/api/pi', {pin: 23});
+    setTimeout(()=>axios.post('/api/pi', {pin: 23}), 2000)
+}
+
 function delay(){
     setTimeout(()=>axios.post('/api/pi', {pin: 22}), 2000)
 }
