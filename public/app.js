@@ -15,5 +15,9 @@ function greenLight(){
 
 function blueLight(){
     axios.put('/api/pi/', {pin: 17});
-    setTimeout(()=>axios.delete('/api/pi/', {pin: 17}), 2000)
+    setTimeout(()=>{axios.delete('/api/pi/', {pin: 17})}, 2000)
+}
+
+function delay(){
+    setTimeout(()=>axios.put('/api/pi/', {pin: 22}), 2000)
 }
