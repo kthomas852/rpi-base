@@ -19,7 +19,7 @@ module.exports = {
     },
 
     deactivate: function(req, res){
-        const pin = req.body.pin;
+        const pin = req.body.pin ? req.body.pin : req.params.pin;
         console.log(`pin: ${pin}`);
         const target = new Gpio(pin, 'out');
         target.writeSync(0);
