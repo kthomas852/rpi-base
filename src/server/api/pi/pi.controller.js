@@ -21,6 +21,7 @@ module.exports = {
     deactivate: function(req, res){
         const pin = req.body.pin ? req.body.pin : req.params.pin;
         console.log(`pin: ${pin}`);
+        console.log(req.params)
         const target = new Gpio(pin, 'out');
         target.writeSync(0);
         res.send({pin: pin, active: false})
