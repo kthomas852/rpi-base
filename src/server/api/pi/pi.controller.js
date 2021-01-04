@@ -1,24 +1,27 @@
 const Gpio = require('onoff').Gpio;
 
 module.exports = {
-    status: function(){
-        return Gpio.accessible
+    status: function(req, res){
+        res.send(Gpio.accessible)
     },
 
-    sense: function(pin){
+    sense: function(req, res){
+        const pin = req.body.pin;
         const target =  new Gpio(pin, 'out');
-        target.read((ret)=>{return ret});
+        target.read((ret)=>{res.send(ret)});
     },
 
-    activate: function(pin){
+    activate: function(req, res){
+        const pin = req.body.pin;
         const target = new Gpio(pin, 'out');
         target.writeSync(1);
-        return {pin: pin, active: true}
+        res.send({pin: pin, active: true})
     },
 
-    deactivate: function(pin){
+    deactivate: function(req, res){
+        const pin = req.body.pin;
         const target = new Gpio(pin, 'out');
         target.writeSync(0);
-        return {pin: pin, active: false}
+        res.send({pin: pin, active: false})
     }
 };
