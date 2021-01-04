@@ -9,6 +9,9 @@ module.exports = function(app){
     app.use(bodyParser.json());
 
     app.use('/api', require('./api'));
+    app.get('/version', function(req, res){
+        res.send('cat side')
+    });
 
     app.use(express.static('public'))
 };

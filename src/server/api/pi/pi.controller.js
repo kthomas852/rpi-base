@@ -7,7 +7,7 @@ module.exports = {
 
     sense: function(pin){
         const target =  new Gpio(pin, 'out');
-        return target.readSync();
+        target.read((ret)=>{return ret});
     },
 
     activate: function(pin){
