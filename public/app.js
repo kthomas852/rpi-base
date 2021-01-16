@@ -30,3 +30,21 @@ function yellowLight(){
 function delay(){
     setTimeout(()=>axios.post('/api/pi', {pin: 22}), 2000)
 }
+
+function cascade(){
+    blueLight();
+    setTimeout(greenLight, 2000);
+    setTimeout(redLight, 2000);
+    setTimeout(yellowLight, 2000);
+    setTimeout(whiteLight, 2000);
+}
+
+function motorON(){
+    axios.put('/api/pi', {pin: 25});
+    console.log('motor ON')
+}
+
+function motorOFF(){
+    axios.post('/api/pi', {pin: 25});
+    console.log('motor OFF')
+}
