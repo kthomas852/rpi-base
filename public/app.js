@@ -40,11 +40,16 @@ function cascade(){
 }
 
 function motorON(){
-    axios.put('/api/pi', {pin: 25});
+    // pin 5 is High Amps
+    // pin 6 is low Amps
+    // pin 13 is enable
+    axios.put('/api/pi', {pin: 13});
+    axios.put('/api/pi', {pin: 6});
     console.log('motor ON')
 }
 
 function motorOFF(){
-    axios.post('/api/pi', {pin: 25});
+    axios.post('/api/pi', {pin: 13});
+    axios.post('/api/pi', {pin: 6});
     console.log('motor OFF')
 }
