@@ -33,10 +33,10 @@ function delay(){
 
 function cascade(){
     redLight(1000);
-    setTimeout(greenLight(1000), 1000);
-    setTimeout(yellowLight(1000), 2000);
-    setTimeout(whiteLight(1000), 3000);
-    setTimeout(blueLight(1000), 4000);
+    setTimeout(()=>{greenLight(1000)}, 1000);
+    setTimeout(()=>{yellowLight(1000)}, 2000);
+    setTimeout(()=>{whiteLight(1000)}, 3000);
+    setTimeout(()=>{blueLight(1000)}, 4000);
 }
 
 function motorON(){
