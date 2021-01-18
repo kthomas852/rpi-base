@@ -27,12 +27,12 @@ function yellowLight(t){
     setTimeout(()=>axios.post('/api/pi', {pin: 23}), t)
 }
 
-function cascade(){
-    redLight(1000);
-    setTimeout(()=>{greenLight(1000)}, 1000);
-    setTimeout(()=>{yellowLight(1000)}, 2000);
-    setTimeout(()=>{whiteLight(1000)}, 3000);
-    setTimeout(()=>{blueLight(1000)}, 4000);
+function cascade(time){
+    redLight(time);
+    setTimeout(()=>{greenLight(time)}, time*1);
+    setTimeout(()=>{yellowLight(time)}, time*2);
+    setTimeout(()=>{whiteLight(time)}, time*3);
+    setTimeout(()=>{blueLight(time)}, time*4);
 }
 
 function motor(crank){
