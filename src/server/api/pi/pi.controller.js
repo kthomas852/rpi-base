@@ -31,8 +31,10 @@ module.exports = {
         const target = new Gpio(16, 'out');
         while(time > count){
             target.writeSync(1);
-            setTimeout(()=>{target.writeSync(0)}, 10);
-            count++
+            setTimeout(()=>{
+                target.writeSync(0);
+                count++
+            }, 50);
         }
         res.send('activated')
     }
