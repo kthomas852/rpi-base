@@ -27,10 +27,6 @@ function yellowLight(t){
     setTimeout(()=>axios.post('/api/pi', {pin: 23}), t)
 }
 
-function delay(){
-    setTimeout(()=>axios.post('/api/pi', {pin: 22}), 2000)
-}
-
 function cascade(){
     redLight(1000);
     setTimeout(()=>{greenLight(1000)}, 1000);
@@ -39,17 +35,33 @@ function cascade(){
     setTimeout(()=>{blueLight(1000)}, 4000);
 }
 
-function motorON(){
+function motor(crank){
     // pin 5 is High Amps
     // pin 6 is low Amps
     // pin 13 is enable
-    axios.put('/api/pi', {pin: 13});
-    axios.put('/api/pi', {pin: 5});
-    console.log('motor ON')
+    if(crank){
+        axios.put('/api/pi', {pin: 13});
+        axios.put('/api/pi', {pin: 6});
+        console.log('motor ON')
+    }else{
+        axios.post('/api/pi', {pin: 13});
+        axios.post('/api/pi', {pin: 6});
+        console.log('motor OFF')
+    }
 }
 
-function motorOFF(){
-    axios.post('/api/pi', {pin: 13});
-    axios.post('/api/pi', {pin: 5});
-    console.log('motor OFF')
+function servo(crank){
+    if(crank){
+        axios.put('/api/pi', {pin: 18})
+    }else{
+        axios.post('/api/pi', {pin: 18})
+    }
+}
+
+function buzzer(on){
+    if(on){
+        axios.put('/api/pi', {pin: 16})
+    }else{
+        axios.post('/api/pi', {pin: 16})
+    }
 }
