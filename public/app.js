@@ -60,7 +60,11 @@ function servo(crank){
 
 function buzzer(on){
     if(on){
-        axios.put('/api/pi', {pin: 16})
+        axios.put('/api/pi', {pin: 16});
+        setTimeout(()=>{
+            axios.post('/api/pi', {pin: 16});
+            buzzer(true)
+        }, 200)
     }else{
         axios.post('/api/pi', {pin: 16})
     }
