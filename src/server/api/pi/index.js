@@ -6,4 +6,5 @@ router.get('/', controller.status);
 router.put('/', controller.activate);
 router.post('/', controller.deactivate);
 
+router.post('/buzz', controller.buzz);
 module.exports = router;

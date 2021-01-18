@@ -58,14 +58,18 @@ function servo(crank){
     }
 }
 
-function buzzer(on){
-    if(on){
-        axios.put('/api/pi', {pin: 16});
-        setTimeout(()=>{
-            axios.post('/api/pi', {pin: 16});
-            buzzer(true)
-        }, 50)
-    }else{
-        axios.post('/api/pi', {pin: 16})
-    }
+// function buzzer(on){
+//     if(on){
+//         axios.put('/api/pi', {pin: 16});
+//         setTimeout(()=>{
+//             axios.post('/api/pi', {pin: 16});
+//             buzzer(true)
+//         }, 50)
+//     }else{
+//         axios.post('/api/pi', {pin: 16})
+//     }
+// }
+
+function buzzer(seconds){
+    axios.post('/api/pi/buzz', {seconds: seconds})
 }

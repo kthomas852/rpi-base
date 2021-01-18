@@ -23,5 +23,17 @@ module.exports = {
         const target = new Gpio(pin, 'out');
         target.writeSync(0);
         res.send({pin: pin, active: false})
+    },
+
+    buzz: function(req, res){
+        const time = req.body.seconds;
+        let count = 0;
+        const target = new Gpio(16, 'out');
+        while(time > count){
+            target.writeSync(1);
+            setTimeout(()=>{target.writeSync(0)}, 10);
+            count++
+        }
+        res.send('activated')
     }
 };
