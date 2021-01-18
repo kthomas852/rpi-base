@@ -52,9 +52,9 @@ function motor(crank){
 
 function servo(crank){
     if(crank){
-        axios.put('/api/pi', {pin: 18})
+        axios.put('/api/pi', {pin: 25})
     }else{
-        axios.post('/api/pi', {pin: 18})
+        axios.post('/api/pi', {pin: 25})
     }
 }
 
