@@ -64,7 +64,7 @@ function buzzer(on){
         setTimeout(()=>{
             axios.post('/api/pi', {pin: 16});
             buzzer(true)
-        }, 200)
+        }, 50)
     }else{
         axios.post('/api/pi', {pin: 16})
     }
